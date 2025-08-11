@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ToniQuest</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🗺️ ToniQuest</h1>
+    <button id="installBtn" hidden>Install App</button>
+  </header>
+
+  <main>
+    <section id="joinSection" class="card">
+      <h2>Join</h2>
+      <label>Team name</label>
+      <input id="teamName" placeholder="e.g., Blazing Starlings" />
+      <button id="joinBtn">Enter Game</button>
+    </section>
+
+    <section id="gameSection" class="card hidden">
+      <div class="topline">
+        <div><strong>Team:</strong> <span id="teamLabel">—</span></div>
+        <div><strong>Points:</strong> <span id="pointsLabel">0</span></div>
+        <div><strong>Stop:</strong> <span id="stopLabel">1 / 5</span></div>
+      </div>
+
+      <div id="clueBox">
+        <h2 id="clueTitle"></h2>
+        <p id="clueText"></p>
+        <img id="clueImage" alt="" class="hidden"/>
+        <div class="geo">
+          <button id="geoBtn">Check Location</button>
+          <span id="geoStatus">GPS not checked</span>
+        </div>
+        <div id="answerBox">
+          <input id="codeInput" placeholder="Enter code word (if required)" />
+          <div class="photoRow">
+            <input type="file" id="photoInput" accept="image/*" capture="environment">
+            <img id="photoPreview" class="preview hidden" alt="preview"/>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="hintBtn">Hint (-5)</button>
+          <button id="submitBtn">Submit</button>
+          <button id="skipBtn">Skip (GM use)</button>
+        </div>
+        <div id="hintText" class="hint hidden"></div>
+        <div id="resultText" class="result"></div>
+      </div>
+
+      <details class="card">
+        <summary>Leaderboard (local demo)</summary>
+        <ol id="leaderboard"></ol>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <small>Prototype · Works offline · Camera & GPS on-device</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
