@@ -1,4 +1,8 @@
 // Minimal ToniQuest logic (static MVP)
+const isGM = new URLSearchParams(location.search).get('gm') === '1';
+if (!isGM) {
+  document.getElementById('skipBtn').style.display = 'none';
+}
 const $ = (q)=>document.querySelector(q);
 const joinSection = $('#joinSection');
 const gameSection = $('#gameSection');
