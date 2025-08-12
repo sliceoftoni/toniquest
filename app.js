@@ -145,6 +145,20 @@ submitBtn.addEventListener('click', ()=>{
   saveState(); render();
 });
 
+skipBtn.addEventListener('click', () => {
+  // Optional: confirm skip
+  if (!confirm('Skip this stop for this device?')) return;
+
+  // Jump ahead one stop (bypass time gates & scoring)
+  if (state.currentStopIndex < stops.length - 1) {
+    state.currentStopIndex += 1;
+    saveState();
+    render();
+  } else {
+    resultText.textContent = 'Already at the final stop.';
+  }
+});
+
 function distanceMeters(lat1, lon1, lat2, lon2){
   const R = 6371000;
   const toRad = (x)=>x*Math.PI/180;
